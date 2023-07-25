@@ -19,3 +19,9 @@ This project is a simple e-commerce website created to practice C# and Blazor te
 This project is open to continuous improvement. Feel free to open a new issue or submit a pull request to contribute or fix any errors. We welcome all kinds of feedback!
 
 Here, the basic features and requirements of the project are described. Additionally, instructions on how to install the project, details about used technologies, and database structure are provided. You may also consider adding more information or including specific code examples to give further insight into the project. I hope this README.md file helps to explain your project and encourages other developers to contribute. Best of luck!
+
+![image](https://github.com/msamets/BasicShoppingWebsiteWithBlazor/assets/72383370/94616a3b-2c19-44a4-a4b0-d1746c663663)
+![image](https://github.com/msamets/BasicShoppingWebsiteWithBlazor/assets/72383370/5f58b37d-b4d9-4f02-8c02-59a8fcfcc4e5)
+![image](https://github.com/msamets/BasicShoppingWebsiteWithBlazor/assets/72383370/e524f910-66fa-4673-a0c2-4208672265ca)
+![image](https://github.com/msamets/BasicShoppingWebsiteWithBlazor/assets/72383370/2a932999-dee2-4b47-9e87-be1dc502c937)
+![image](https://github.com/msamets/BasicShoppingWebsiteWithBlazor/assets/72383370/a805fceb-bc44-4677-bccf-a8a779936c87)
