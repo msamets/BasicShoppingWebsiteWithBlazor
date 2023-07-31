@@ -10,5 +10,7 @@ namespace ShopOnline.Api.Repositories.Contracts
         Task<ProductCategory> GetCategory(int id);
 
         Task<IEnumerable<Product>> GetItemsByCategory(int categoryId);
+
+        Task AddProduct(Product product);
     }
 }

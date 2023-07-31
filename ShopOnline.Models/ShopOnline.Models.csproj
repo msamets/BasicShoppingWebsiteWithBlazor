@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Blazored.Toast" Version="4.1.0" />
+    <PackageReference Include="FluentValidation" Version="11.6.0" />
+  </ItemGroup>
+
 </Project>

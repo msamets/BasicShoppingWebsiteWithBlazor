@@ -1,6 +1,8 @@
 ﻿using ShopOnline.Models.Dtos;
 using ShopOnline.Web.Services.Contracts;
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 
 namespace ShopOnline.Web.Services
 {
@@ -111,6 +113,32 @@ namespace ShopOnline.Web.Services
                     }
 
                     return await response.Content.ReadFromJsonAsync<IEnumerable<ProductCategoryDto>>();
+                }
+                else
+                {
+                    var message = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Http Status Code - {response.StatusCode} Message - {message}");
+                }
+            }
+            catch (Exception)
+            {
+                //log exception
+                throw;
+            }
+        }
+
+        public async Task AddProduct(AddProductDto product)
+        {
+            try
+            {
+                var jsonProduct = JsonSerializer.Serialize(product);
+                var content = new StringContent(jsonProduct, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync("api/Product", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+
                 }
                 else
                 {

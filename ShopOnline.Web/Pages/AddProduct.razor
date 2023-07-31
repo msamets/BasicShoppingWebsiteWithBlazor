@@ -1,0 +1,72 @@
+﻿@page "/AddProduct"
+@inherits AddProductBase
+
+@if (@ProductCategories == null)
+{
+    <DisplaySpinner />
+}
+else
+{
+    <h3>Add Product</h3>
+
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <EditForm Model="@Product" OnValidSubmit="@AddProduct_Click">
+            <DataAnnotationsValidator />
+
+            @if (!string.IsNullOrEmpty(Product.ImageURL))
+            {
+                <div class="form-group my-2 flex-column">
+                    <h5>Product Image</h5>
+                    <img src="@Product.ImageURL" alt="Product Image" style="max-width: 400px; max-height: 400px;" />
+                </div>
+            }
+
+            <div class="form-group">
+                <label for="ProductName">Product Name</label>
+                <InputText id="ProductName" class="form-control" @bind-Value="@Product.Name" />
+                <ValidationMessage For="@(() => Product.Name)" />
+            </div>
+
+            <div class="form-group" style="display:flex;flex-direction:column;">
+                <label for="ProductDescription">Product Description</label>
+                <InputTextArea id="ProductDescription" @bind-Value="@Product.Description" />
+                <ValidationMessage For="@(() => Product.Description)" />
+
+            </div>
+
+            <div class="form-group">
+                <label for="ProductPrice">Product Price</label>
+                <InputNumber id="ProductPrice" class="form-control" @bind-Value="@Product.Price" min="1" />
+                <ValidationMessage For="@(() => Product.Price)" />
+            </div>
+
+            <div class="form-group">
+                <label for="ProductQty">Product Quantity</label>
+                <InputNumber id="ProductQty" class="form-control" @bind-Value="@Product.Qty" min="1" />
+                <ValidationMessage For="@(() => Product.Qty)" />
+            </div>
+
+            <div class="form-group">
+                <label for="ProductImageURL">Product Image URL</label>
+                <InputText id="ProductImageURL" class="form-control" @bind-Value="@Product.ImageURL" />
+                <ValidationMessage For="@(() => Product.ImageURL)" />
+            </div>
+
+            <div class="form-group">
+                <label for="ProductCategory">Product Category</label>
+                <InputSelect class="form-select" @bind-Value="@Product.CategoryId" >
+                    @foreach (var category in ProductCategories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => Product.CategoryId)" />
+            </div>
+
+            <ValidationSummary class="my-2"/>
+
+
+            <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+        </EditForm>
+    </div>
+}
